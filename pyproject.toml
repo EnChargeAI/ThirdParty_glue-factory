@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "gluefactory"
 description = "Training and evaluation of local feature extraction and matching"
@@ -27,16 +31,18 @@ dependencies = [
     "h5py",
     "omegaconf",
     "tensorboard",
-    "albumentations",
     "kornia",
     "seaborn",
     "joblib",
-    "scikit-learn~=1.3.0",
-    "lightglue @ git+https://github.com/cvg/LightGlue.git",
+    "scikit-learn>=1.5",
+    "lightglue @ git+https://github.com/EnChargeAI/ThirdParty_lightglue@main",
 ]
-urls = {Repository = "https://github.com/cvg/glue-factory"}
+urls = {Repository = "https://github.com/EnChargeAI/ThirdParty_glue-factory"}
 
 [project.optional-dependencies]
+# Training-only. albumentations pulls opencv-python-headless, which overwrites the cv2
+# package already installed by opencv-python. Eval does not import it.
+train = ["albumentations"]
 extra = [
     "pycolmap",
     "poselib",
