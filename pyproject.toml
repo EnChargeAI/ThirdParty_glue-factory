@@ -35,7 +35,7 @@ dependencies = [
     "seaborn",
     "joblib",
     "scikit-learn>=1.5",
-    "lightglue @ git+https://github.com/EnChargeAI/ThirdParty_lightglue@main",
+    "lightglue @ git+https://github.com/EnChargeAI/ThirdParty_lightglue@mybranch",
     "albumentations",
 ]
 urls = {Repository = "https://github.com/EnChargeAI/ThirdParty_glue-factory"}
